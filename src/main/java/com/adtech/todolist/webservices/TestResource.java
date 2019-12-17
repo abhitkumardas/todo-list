@@ -17,4 +17,5 @@ public class TestResource {
     public String print(@PathVariable("text") String text){
         return "<h1>"+ text +"</h1>";
     }
+
 }
