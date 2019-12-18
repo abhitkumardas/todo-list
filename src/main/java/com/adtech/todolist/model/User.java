@@ -11,12 +11,16 @@ public class User {
     @SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ")
     @Column(name = "user_id", nullable = false,updatable = false)
     private Long userId;
+
     @Column(name="user_name")
     private String userName;
+
     @Column(name="guid")
     private String guid;
+
     @Column(name="create_date")
     private Date createDate;
+
     @Column(name="email")
     private String email;
 
