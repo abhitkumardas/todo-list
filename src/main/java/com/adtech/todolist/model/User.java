@@ -1,28 +1,33 @@
 package com.adtech.todolist.model;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "todo_users")
-public class User implements Serializable {
+@EntityListeners(AuditingEntityListener.class)
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
     @SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ")
-    @Column(name = "user_id", nullable = false,updatable = false)
+    @Column(name = "user_id", nullable = false, updatable = false)
     private Long userId;
 
-    @Column(name="user_name")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name="guid")
+    @Column(name = "guid")
     private String guid;
 
-    @Column(name="create_date")
+    @CreatedDate
+    @Column(name = "create_date")
     private Date createDate;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
     public Long getUserId() {
@@ -63,5 +68,16 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User(Long userId, String userName, String guid, Date createDate, String email) {
+        this.userId = userId;
+        this.userName = userName;
+        this.guid = guid;
+        this.createDate = createDate;
+        this.email = email;
+    }
+
+    public User() {
     }
 }
