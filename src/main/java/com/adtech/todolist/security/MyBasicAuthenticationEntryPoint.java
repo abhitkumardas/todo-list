@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.security;
 
 import org.springframework.security.core.AuthenticationException;
@@ -28,3 +29,4 @@ public class MyBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoi
         super.afterPropertiesSet();
     }
 }
+*/

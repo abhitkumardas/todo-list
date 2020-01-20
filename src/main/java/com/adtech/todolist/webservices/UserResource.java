@@ -3,16 +3,14 @@ package com.adtech.todolist.webservices;
 import com.adtech.todolist.model.User;
 import com.adtech.todolist.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class TestResource {
+public class UserResource {
 
     @Autowired
     UserRepository userRepository;
@@ -32,12 +30,15 @@ public class TestResource {
         return userRepository.findAll();
     }
 
+    @RequestMapping(value = "/deleteUser/{userid}", method = RequestMethod.DELETE)
+    public ResponseEntity deleteUser(@PathVariable("userid") String userId) {
+        userRepository.deleteById(Long.parseLong(userId));
+        return ResponseEntity.ok().body("User Deleted Successfully");
+
+    }
+
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
-    public User createUser() {
-        User user = new User();
-        user.setUserName("fero");
-        user.setGuid("123");
-        user.setEmail("fero@Gmail.com");
+    public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 

@@ -2,6 +2,7 @@ package com.adtech.todolist.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user_todo_list")
@@ -14,8 +15,9 @@ public class UserTodoList {
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "user_id")
     private User user;
 
-    @Column (length = 25000)
-    private String todoList;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "todo_id", nullable = false, referencedColumnName = "todo_id")
+    private Todo todoList;
 
     public Long getUserTodoId() {
         return userTodoId;
@@ -33,11 +35,11 @@ public class UserTodoList {
         this.user = user;
     }
 
-    public String getTodoList() {
+    public Todo getTodoList() {
         return todoList;
     }
 
-    public void setTodoList(String todoList) {
+    public void setTodoList(Todo todoList) {
         this.todoList = todoList;
     }
 }
