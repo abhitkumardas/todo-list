@@ -30,6 +30,14 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "user_active_status")
+    private boolean active;
+
+    private String roles;
+
     public Long getUserId() {
         return userId;
     }
@@ -70,14 +78,27 @@ public class User {
         this.email = email;
     }
 
-    public User(Long userId, String userName, String guid, Date createDate, String email) {
-        this.userId = userId;
-        this.userName = userName;
-        this.guid = guid;
-        this.createDate = createDate;
-        this.email = email;
+    public String getPassword() {
+        return password;
     }
 
-    public User() {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 }
