@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.security;
 
 import com.adtech.todolist.model.User;
@@ -24,3 +25,4 @@ public class MyUserDetailService implements UserDetailsService {
         return user.map(MyUserDetails::new).get();
     }
 }
+*/

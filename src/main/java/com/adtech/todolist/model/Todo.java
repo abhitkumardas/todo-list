@@ -9,7 +9,7 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TODO_SEQ")
     @SequenceGenerator(name = "TODO_SEQ", sequenceName = "TODO_SEQ")
-    @Column(name = "todo_id", nullable = false)
+    @Column(nullable = false)
     private Long todoId;
 
     @Column(nullable = false)
@@ -20,8 +20,12 @@ public class Todo {
     private TodoStatus status; //ACTIVE, COMPLETED, DELETED
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "user_id")
+    @JoinColumn(name = "userId", nullable = false, referencedColumnName = "userId")
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "noteGroupId", nullable = false, referencedColumnName = "noteGroupId")
+    private NoteGroup noteGroup;
 
     public Long getTodoId() {
         return todoId;

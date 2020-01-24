@@ -15,15 +15,7 @@ public class UserResource {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/")
-    public String welcome() {
-        return "<h2> Welcome to Our Todo List Application </h2>";
-    }
 
-    @RequestMapping(value = "/print/{text}", method = RequestMethod.GET)
-    public String print(@PathVariable("text") String text) {
-        return "<h1>" + text + "</h1>";
-    }
 
     @RequestMapping(value = "/getallusers", method = RequestMethod.GET)
     public List<User> printAllRecords() {
