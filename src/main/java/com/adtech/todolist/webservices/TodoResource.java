@@ -29,7 +29,7 @@ public class TodoResource {
         todoRepository.save(todo);
     }
 
-    @RequestMapping(value = "/deletTodo/{todoId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteTodo/{todoId}", method = RequestMethod.DELETE)
     public void deleteTodo(@PathVariable("todoId") String todoId) {
         Todo todo = todoRepository.findByTodoId(Long.parseLong(todoId));
         todoRepository.delete(todo);

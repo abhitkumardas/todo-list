@@ -19,6 +19,10 @@ public class Todo {
     @Column(nullable = false)
     private TodoStatus status; //ACTIVE, COMPLETED, DELETED
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "user_id")
+    private User user;
+
     public Long getTodoId() {
         return todoId;
     }
@@ -41,5 +45,13 @@ public class Todo {
 
     public void setStatus(TodoStatus status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
