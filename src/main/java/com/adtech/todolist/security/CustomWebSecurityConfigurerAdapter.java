@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,16 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @Configuration
 @EnableWebSecurity
 public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+*/
 /*@Autowired
-    private MyBasicAuthenticationEntryPoint authenticationEntryPoint;*/
+    private MyBasicAuthenticationEntryPoint authenticationEntryPoint;*//*
+
 
 
     @Autowired
     UserDetailsService userDetailsService;
 
+*/
 /*
 @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authentication) throws Exception {
@@ -32,9 +36,11 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
                 .password(passwordEncoder().encode("admin"))
                 .authorities("ROLE_USER");
     }
+*//*
+
+
+
 */
-
-
 /*
 @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -47,7 +53,8 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-*/
+*//*
+
 
 
     @Bean
@@ -55,6 +62,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
         return NoOpPasswordEncoder.getInstance();
     }
 
+*/
 /*protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
           .antMatchers("/securityNone").permitAll()
@@ -65,7 +73,8 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
  
         http.addFilterAfter(new CustomFilter(),
                           BasicAuthenticationFilter.class);
-    }*/
+    }*//*
+
 
 
     @Override
@@ -73,3 +82,4 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
        auth.userDetailsService(userDetailsService);
     }
 }
+*/

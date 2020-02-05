@@ -1,11 +1,15 @@
 package com.adtech.todolist.model;
 
 import com.adtech.todolist.codetype.TodoStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Todo {
+@JsonIgnoreProperties({"user"})
+public class Todo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TODO_SEQ")
     @SequenceGenerator(name = "TODO_SEQ", sequenceName = "TODO_SEQ")
@@ -21,6 +25,7 @@ public class Todo {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "user_id")
+    @JsonProperty("user")
     private User user;
 
     public Long getTodoId() {
@@ -54,4 +59,5 @@ public class Todo {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

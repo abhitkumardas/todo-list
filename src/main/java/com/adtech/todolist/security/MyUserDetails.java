@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.security;
 
 import com.adtech.todolist.model.User;
@@ -59,3 +60,4 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 }
+*/

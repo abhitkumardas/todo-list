@@ -1,7 +1,12 @@
 package com.adtech.todolist.service;
 
 import com.adtech.todolist.model.Todo;
+import com.adtech.todolist.model.User;
+
+import java.util.List;
 
 public interface TodoService {
-    public Todo getByTodoId(Long todoId);
+    public List<Todo> getAllTodo();
+
+
 }

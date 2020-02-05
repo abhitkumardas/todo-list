@@ -5,6 +5,8 @@ import com.adtech.todolist.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TodoServiceImpl implements TodoService {
 
@@ -12,7 +14,9 @@ public class TodoServiceImpl implements TodoService {
     TodoRepository todoRepository;
 
     @Override
-    public Todo getByTodoId(Long todoId) {
-        return null;
+    public List<Todo> getAllTodo() {
+        return todoRepository.findAll();
     }
 }
+
+
