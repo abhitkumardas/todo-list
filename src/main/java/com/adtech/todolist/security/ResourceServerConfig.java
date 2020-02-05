@@ -1,4 +1,4 @@
-package com.adtech.todolist.security;
+//package com.adtech.todolist.security;
 /*
 public class ResourceServerConfig {
 }*/
