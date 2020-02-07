@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.extras;
 
 
@@ -46,3 +47,4 @@ public class UserTodoList {
         this.todoList = todoList;
     }
 }
+*/

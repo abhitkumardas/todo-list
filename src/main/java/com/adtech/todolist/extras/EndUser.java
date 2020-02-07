@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.extras;
 
 import com.adtech.todolist.model.NoteGroup;
@@ -14,9 +15,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+*/
 /**
  * @author Abhit Das
- */
+ *//*
+
 //@EntityListeners(AuditingEntityListener.class)
 
 @Entity(name = "todo_user")
@@ -89,7 +92,8 @@ public class EndUser implements Serializable{
     @Column(nullable = false)
     private String lastModifiedByUserAgent;
 
-    /*
+    */
+/*
     // @NotNull(message = "Registered By app source is mandatory.")
     @Column(nullable = false, updatable = false)
     private AppSource registeredByAppSource;
@@ -97,7 +101,8 @@ public class EndUser implements Serializable{
     // @NotNull(message = "Last Modified By app source is mandatory.")
     @Column(nullable = false)
     private AppSource lastModifiedByAppSource;
-    */
+    *//*
+
 
     @Column
     @CreatedDate
@@ -111,3 +116,4 @@ public class EndUser implements Serializable{
 
 }
 
+*/

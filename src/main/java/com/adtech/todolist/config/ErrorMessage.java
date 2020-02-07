@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import java.util.Collections;
 import java.util.List;
 
-@JsonPropertyOrder({ "data", "message", "infoType", "status", "statusCode", "errors"})
+@JsonPropertyOrder({"statusCode", "status", "infoType", "message", "errors" , "data"})
 public class ErrorMessage extends Message {
 
     private Object data;

@@ -1,3 +1,4 @@
+/*
 package com.adtech.todolist.security;
 
 import com.adtech.todolist.codetype.InfoType;
@@ -22,8 +23,10 @@ public class AuthService {
     @Autowired
     private RestTemplate restTemplate;
 
-    /*@Autowired
-    private OAuthClientDetailsService oAuthClientDetailsService;*/
+    */
+/*@Autowired
+    private OAuthClientDetailsService oAuthClientDetailsService;*//*
+
 
     @Autowired
     private UserService userService;
@@ -34,7 +37,8 @@ public class AuthService {
     @Autowired
     TransactionInfo transactionInfo;
 
-    /*
+    */
+/*
     public void fetchAccessToken(String clientID, String username, String password) {
 
         OAuthClientDetails oAuthClientDetails = oAuthClientDetailsService.getByOAuthClientId(clientID);
@@ -83,5 +87,7 @@ public class AuthService {
             transactionInfo.generateException("invalid.client.credentials", InfoType.ERROR, HttpStatus.FORBIDDEN);
         }
     }
-    */
+    *//*
+
 }
+*/

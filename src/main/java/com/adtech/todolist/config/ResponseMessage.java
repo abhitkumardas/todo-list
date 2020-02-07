@@ -4,7 +4,7 @@ import com.adtech.todolist.codetype.InfoType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.springframework.http.HttpStatus;
 
-@JsonPropertyOrder({ "data", "message", "infoType", "status", "statusCode"})
+@JsonPropertyOrder({"statusCode", "status", "infoType", "message", "data"})
 public class ResponseMessage extends Message{
 
     private Object data;

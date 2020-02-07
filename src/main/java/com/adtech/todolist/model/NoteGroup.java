@@ -2,7 +2,6 @@ package com.adtech.todolist.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
