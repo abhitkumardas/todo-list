@@ -1,5 +1,8 @@
-package com.adtech.todolist.model;
+package com.adtech.todolist.extras;
 
+
+import com.adtech.todolist.model.Todo;
+import com.adtech.todolist.model.User;
 
 import javax.persistence.*;
 import java.util.List;

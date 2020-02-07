@@ -29,15 +29,15 @@ public class User {
     @Column(nullable = false)
     private Boolean isActive;
 
-    @NotNull(message = "User name is mandatory.")
+    @NotNull(message = "User Name is mandatory")
     @Column(nullable = false, unique = true)
     private String userName;
 
-    @NotNull(message = "User email is mandatory.")
+    @NotNull(message = "Email Id is mandatory")
     @Column(nullable = false, unique = true)
     private String email;
 
-    @NotNull(message = "User first name is mandatory.")
+    @NotNull(message = "User first name is mandatory")
     @Column(nullable = false)
     private String firstName;
 
@@ -47,7 +47,7 @@ public class User {
     @Column
     private String lastName;
 
-    @NotNull(message = "Password is mandatory.")
+    @NotNull(message = "Password is mandatory")
     @Column(nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Transient
@@ -90,9 +90,6 @@ public class User {
     private String lastModifiedByAppSource;
     */
 
-    @Column
-    private List<NoteGroup> noteGroupList;
-
     @CreatedDate
     @Column(name = "created_date")
     private Date createdDate;
@@ -117,11 +114,11 @@ public class User {
         this.guid = guid;
     }
 
-    public boolean isActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 
@@ -171,14 +168,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<NoteGroup> getNoteGroupList() {
-        return noteGroupList;
-    }
-
-    public void setNoteGroupList(List<NoteGroup> noteGroupList) {
-        this.noteGroupList = noteGroupList;
     }
 
     public Date getCreatedDate() {
