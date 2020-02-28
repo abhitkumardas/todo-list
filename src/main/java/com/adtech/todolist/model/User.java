@@ -4,8 +4,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "todo_users")
@@ -17,7 +18,7 @@ public class User {
     @Column(name = "user_id", nullable = false, updatable = false)
     private Long userId;
 
-    @Column(name = "user_name")
+    @Column(name = "user_name", nullable = false, unique = true)
     private String userName;
 
     @Column(name = "guid")
@@ -27,7 +28,7 @@ public class User {
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)
@@ -37,6 +38,31 @@ public class User {
     private boolean active;
 
     private String roles;
+
+    private String grands;
+
+    public User(String userName, String password, String email) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
+    public List<String> getRoleList() {
+        if (this.roles.length() > 0) {
+            return Arrays.asList(roles.split(","));
+        }
+        return new ArrayList<>();
+    }
+
+    public List<String> getGrandsList() {
+        if (this.grands.length() > 0) {
+            return Arrays.asList(grands.split(","));
+        }
+        return new ArrayList<>();
+    }
 
     public Long getUserId() {
         return userId;
@@ -100,5 +126,13 @@ public class User {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+
+    public String getGrands() {
+        return grands;
+    }
+
+    public void setGrands(String grands) {
+        this.grands = grands;
     }
 }

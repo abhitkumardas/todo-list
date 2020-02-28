@@ -40,10 +40,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveOrFetch(User user) {
         user.setGuid(getGuid(user));
+        user.setActive(true);
+        user.setRoles("USER");
+        user.setGrands("READ");
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPassword);
         User user1 = getByGuid(user.getGuid());
+
         if (user1 == null) {
             userRepository.save(user);
         }
@@ -55,6 +59,11 @@ public class UserServiceImpl implements UserService {
         StringBuilder builder = new StringBuilder(user.getEmail());
 //        builder.append(user.getUserName());
         return todoGuid.getUniqueHashId(builder.toString().toLowerCase());
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
 

@@ -1,4 +1,3 @@
-/*
 package com.adtech.todolist.security;
 
 import com.adtech.todolist.model.User;
@@ -9,20 +8,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
+/**
+ * @author ferozk
+ */
 
 @Service
-public class MyUserDetailService implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 
-    @Autowired
+@Autowired
     UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findById(Long.parseLong(userId));
-        user.orElseThrow(()-> new UsernameNotFoundException("User not found :"+userId));
-        return user.map(MyUserDetails::new).get();
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        User user = userRepository.findByUserName(userName);
+        return new MyUserDetails(user);
     }
 }
-*/

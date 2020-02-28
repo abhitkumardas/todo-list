@@ -3,6 +3,7 @@ package com.adtech.todolist.webservices;
 
 import com.adtech.todolist.codetype.TodoStatus;
 import com.adtech.todolist.model.Todo;
+import com.adtech.todolist.model.request.TodoReq;
 import com.adtech.todolist.model.User;
 import com.adtech.todolist.repository.TodoRepository;
 import com.adtech.todolist.repository.UserRepository;
@@ -12,10 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
+@CrossOrigin
 public class TodoResource {
     @Autowired
     TodoRepository todoRepository;
@@ -26,31 +25,31 @@ public class TodoResource {
     @Autowired
     ResponseMesseageSerivce responseMesseageSerivce;
 
-
-    @RequestMapping(value = "/createTodo/{userId}", method = RequestMethod.POST)
-    public void createTodo(@PathVariable("userId") String userId) {
-        User user = userRepository.findByUserId(Long.parseLong(userId));
-        Todo todo = new Todo();
+    @RequestMapping(value = "/createTodo", method = RequestMethod.POST)
+    public void createTodo(@RequestBody TodoReq todoReq) {
+        String userId = todoReq.getUserId();
+        User user = userRepository.findByUserId(Long.valueOf(userId));
+        Todo todo=new Todo();
         todo.setUser(user);
-        todo.setTodo("Test todo");
+        todo.setTodo(todoReq.getTodo());
         todo.setStatus(TodoStatus.ACTIVE);
         todoRepository.save(todo);
     }
 
-//    @RequestMapping(value = "/updateTodoStatus/{todoId}", method = RequestMethod.PUT)
-//    public void updateStatus(@PathVariable("todoId") String todoId) {
-//        Todo todo = todoRepository.findByTodoId(Long.parseLong(todoId));
-//        todo.setTodo(todo.getTodo());
-//        todo.setTodoId(todo.getTodoId());
-//        todo.setStatus(TodoStatus.COMPLETED);
-//        todoRepository.save(todo);
-//    }
+    @RequestMapping(value = "/updateTodoStatus/{todoId}", method = RequestMethod.PUT)
+    public void updateStatus(@PathVariable("todoId") String todoId) {
+        Todo todo = todoRepository.findByTodoId(Long.parseLong(todoId));
+        todo.setTodo(todo.getTodo());
+        todo.setTodoId(todo.getTodoId());
+        todo.setStatus(TodoStatus.COMPLETED);
+        todoRepository.save(todo);
+    }
 
-//    @RequestMapping(value = "/deleteTodo/{todoId}", method = RequestMethod.DELETE)
-//    public void deleteTodo(@PathVariable("todoId") String todoId) {
-//        Todo todo = todoRepository.findByTodoId(Long.parseLong(todoId));
-//        todoRepository.delete(todo);
-//    }
+    @RequestMapping(value = "/deleteTodo/{todoId}", method = RequestMethod.DELETE)
+    public void deleteTodo(@PathVariable("todoId") String todoId) {
+        Todo todo = todoRepository.findByTodoId(Long.parseLong(todoId));
+        todoRepository.delete(todo);
+    }
 
     @RequestMapping(value = "/getAllTodo/{userId}", method = RequestMethod.GET)
     public ResponseEntity allTodos(@PathVariable("userId") String userId) {

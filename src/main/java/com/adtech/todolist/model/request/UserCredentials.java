@@ -1,4 +1,4 @@
-package com.adtech.todolist.model;
+package com.adtech.todolist.model.request;
 
 
 public class UserCredentials {

@@ -1,7 +1,7 @@
 package com.adtech.todolist.webservices;
 
 import com.adtech.todolist.model.User;
-import com.adtech.todolist.model.UserCredentials;
+import com.adtech.todolist.model.request.UserCredentials;
 import com.adtech.todolist.repository.UserRepository;
 import com.adtech.todolist.service.ResponseMesseageSerivce;
 import com.adtech.todolist.service.UserServiceImpl;
@@ -9,13 +9,12 @@ import com.adtech.todolist.util.CustomErrorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.ObjectName;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserResource {
 
     @Autowired
@@ -79,18 +78,19 @@ public class UserResource {
                     .generateResponseMessage(null, "User Created Successfully", HttpStatus.OK));
         }
     }
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+
+/*    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity login(@RequestBody UserCredentials credentials) {
-        String userNameFromRequest = credentials.getUser();
+        *//*String userNameFromRequest = credentials.getUser();
         String passwordRequest = credentials.getPass();
         if ((userNameFromRequest.equals("fero@gmail.com")) && (passwordRequest.equals("pass"))) {
             return ResponseEntity.ok().body("Valid");
         } else {
             return ResponseEntity.ok().body("In Valid");
-        }
+        }*//*
 
 
-    }
+    }*/
 
 
 }

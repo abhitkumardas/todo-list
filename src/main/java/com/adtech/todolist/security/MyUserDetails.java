@@ -1,4 +1,3 @@
-/*
 package com.adtech.todolist.security;
 
 import com.adtech.todolist.model.User;
@@ -6,38 +5,43 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ * @author ferozk
+ */
 public class MyUserDetails implements UserDetails {
-    private String userName;
-    private String password;
-    private boolean active;
-    private List<GrantedAuthority> grantedAuthorities;
 
-    public MyUserDetails(User user) {
-        this.userName = user.getUserName();
-        this.password = user.getPassword();
-        this.active = user.isActive();
-        this.grantedAuthorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+    private User user;
+
+    MyUserDetails(User user){
+        this.user=user;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> grantedAuthorities=new ArrayList<>();
+        this.user.getGrandsList().forEach(g->{
+            GrantedAuthority grantedAuthority=new SimpleGrantedAuthority(g);
+            grantedAuthorities.add(grantedAuthority);
+        });
+        this.user.getRoleList().forEach(r->{
+            GrantedAuthority grantedAuthority=new SimpleGrantedAuthority("ROLE_"+r);
+            grantedAuthorities.add(grantedAuthority);
+        });
         return grantedAuthorities;
     }
 
     @Override
     public String getPassword() {
-        return password;
+        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return userName;
+        return this.user.getUserName();
     }
 
     @Override
@@ -60,4 +64,3 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 }
-*/

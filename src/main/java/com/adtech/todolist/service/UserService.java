@@ -10,5 +10,6 @@ public interface UserService  {
     public User getByGuid(String guid);
     public User saveOrFetch(User user);
     public String getGuid(User user);
+    public User getByEmail(String email);
 
 }
