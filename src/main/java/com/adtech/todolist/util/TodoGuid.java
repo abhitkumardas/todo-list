@@ -9,10 +9,10 @@ import java.security.NoSuchAlgorithmException;
 public class TodoGuid {
 
 
-    public String getUniqueHashId(String input_string){
+    public String getUniqueHashId(String input_string) {
         MessageDigest messageDigest;
         try {
-            messageDigest=MessageDigest.getInstance("SHA-256");
+            messageDigest = MessageDigest.getInstance("SHA-256");
             byte[] guidBytes = messageDigest.digest(input_string.getBytes());
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < guidBytes.length; i++) {
@@ -20,7 +20,7 @@ public class TodoGuid {
             }
             return stringBuilder.toString();
         } catch (NoSuchAlgorithmException e) {
-            return "Exception :"+e.getMessage();
+            return "Exception :" + e.getMessage();
         }
     }
 }

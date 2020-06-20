@@ -1,7 +1,6 @@
 package com.adtech.todolist.webservices;
 
 import com.adtech.todolist.model.User;
-import com.adtech.todolist.model.request.UserCredentials;
 import com.adtech.todolist.repository.UserRepository;
 import com.adtech.todolist.service.ResponseMesseageSerivce;
 import com.adtech.todolist.service.UserServiceImpl;

@@ -3,9 +3,6 @@ package com.adtech.todolist.service;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.springframework.http.HttpStatus;
 
-
-import java.util.List;
-
 @JsonPropertyOrder({"data, messageKey, status"})
 public class ResponseMessage extends Message {
     private Object data;

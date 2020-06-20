@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TodoRepository extends JpaRepository<Todo,Long> {
-    public List<Todo> findAll();
+public interface TodoRepository extends JpaRepository<Todo, Long> {
+    List<Todo> findAll();
+
     List<Object> findByUser(User user);
+
     Todo findByTodoId(Long todoId);
 }

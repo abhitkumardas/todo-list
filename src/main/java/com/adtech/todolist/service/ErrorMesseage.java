@@ -2,7 +2,6 @@ package com.adtech.todolist.service;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 
 public class ErrorMesseage extends Message {

@@ -2,7 +2,6 @@ package com.adtech.todolist.model;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "user_todo_list")

@@ -3,8 +3,8 @@ package com.adtech.todolist.webservices;
 
 import com.adtech.todolist.codetype.TodoStatus;
 import com.adtech.todolist.model.Todo;
-import com.adtech.todolist.model.request.TodoReq;
 import com.adtech.todolist.model.User;
+import com.adtech.todolist.model.request.TodoReq;
 import com.adtech.todolist.repository.TodoRepository;
 import com.adtech.todolist.repository.UserRepository;
 import com.adtech.todolist.service.ResponseMesseageSerivce;
@@ -29,7 +29,7 @@ public class TodoResource {
     public void createTodo(@RequestBody TodoReq todoReq) {
         String userId = todoReq.getUserId();
         User user = userRepository.findByUserId(Long.valueOf(userId));
-        Todo todo=new Todo();
+        Todo todo = new Todo();
         todo.setUser(user);
         todo.setTodo(todoReq.getTodo());
         todo.setStatus(TodoStatus.ACTIVE);

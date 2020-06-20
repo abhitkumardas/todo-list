@@ -1,10 +1,7 @@
 package com.adtech.todolist.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.Set;
 
 /**
  * @author ferozk
